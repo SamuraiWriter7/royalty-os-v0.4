@@ -1,0 +1,302 @@
+schema_version: "0.4.0-draft"
+object_type: "multi_layer_value_graph"
+graph_id: "mlvg-example-001"
+title: "Multi-Layer Value Graph Example"
+description: "Example of a Royalty OS v0.4 Multi-Layer Value Graph connecting a human idea, prompt, generated output, policy module, review state, governance action, and OS event."
+
+metadata:
+created_at: "2026-06-06T00:00:00Z"
+updated_at: "2026-06-06T00:00:00Z"
+created_by: "SamuraiWriter7"
+spec_reference: "specs/royalty-os-v0.4-draft.yaml"
+structural_diff_reference: "docs/v0.4-structural-diff.md"
+source_version: "v0.4-draft"
+notes: "This example demonstrates the first v0.4 Multi-Layer Value Graph structure."
+
+layers:
+
+* layer_id: "layer-contribution"
+  layer_type: "contribution_layer"
+  name: "Contribution Layer"
+  description: "Represents contribution relationships between human ideas, prompts, and generated artifacts."
+  status: "active"
+  order: 1
+  applies_to:
+
+  * "edge"
+
+* layer_id: "layer-reference"
+  layer_type: "reference_layer"
+  name: "Reference Layer"
+  description: "Represents references, citations, inspirations, or traceable influence."
+  status: "active"
+  order: 2
+  applies_to:
+
+  * "edge"
+
+* layer_id: "layer-derivation"
+  layer_type: "derivation_layer"
+  name: "Derivation Layer"
+  description: "Represents transformations from prompts or drafts into generated or edited artifacts."
+  status: "active"
+  order: 3
+  applies_to:
+
+  * "edge"
+
+* layer_id: "layer-review"
+  layer_type: "review_layer"
+  name: "Review Layer"
+  description: "Represents review status and assessment state."
+  status: "active"
+  order: 4
+  applies_to:
+
+  * "edge"
+  * "review_state"
+
+* layer_id: "layer-policy"
+  layer_type: "policy_layer"
+  name: "Policy Layer"
+  description: "Represents policy modules applied to value relationships."
+  status: "active"
+  order: 5
+  applies_to:
+
+  * "edge"
+  * "policy_module"
+
+* layer_id: "layer-governance"
+  layer_type: "governance_layer"
+  name: "Governance Layer"
+  description: "Represents governance actions applied to value relationships."
+  status: "active"
+  order: 6
+  applies_to:
+
+  * "edge"
+  * "governance_action"
+
+* layer_id: "layer-event"
+  layer_type: "event_layer"
+  name: "Event Layer"
+  description: "Represents OS-level events related to graph evolution and governance activity."
+  status: "active"
+  order: 7
+  applies_to:
+
+  * "edge"
+  * "os_event"
+
+nodes:
+
+* node_id: "human-samuraiwriter7"
+  node_type: "human"
+  label: "SamuraiWriter7"
+  description: "Human originator of the value relationship structure."
+  created_at: "2026-06-06T00:00:00Z"
+  attributes:
+  role: "originator"
+
+* node_id: "idea-dynamic-value-relationship-os"
+  node_type: "value_record"
+  label: "Dynamic Value Relationship OS Concept"
+  description: "A conceptual value record defining the v0.4 direction."
+  created_at: "2026-06-06T00:00:00Z"
+  attributes:
+  concept_stage: "structural_draft"
+
+* node_id: "prompt-v04-structural-diff"
+  node_type: "prompt"
+  label: "v0.4 Structural Diff Prompt"
+  description: "Prompt requesting the formalization of the v0.4 structural diff."
+  created_at: "2026-06-06T00:00:00Z"
+
+* node_id: "output-v04-structural-diff-doc"
+  node_type: "document"
+  label: "v0.4 Structural Diff Document"
+  description: "Document defining the transition from v0.3 to v0.4."
+  source_reference: "docs/v0.4-structural-diff.md"
+  created_at: "2026-06-06T00:00:00Z"
+
+* node_id: "spec-v04-draft"
+  node_type: "document"
+  label: "Royalty OS v0.4 Draft Specification"
+  description: "Draft YAML specification for Royalty OS v0.4."
+  source_reference: "specs/royalty-os-v0.4-draft.yaml"
+  created_at: "2026-06-06T00:00:00Z"
+
+* node_id: "policy-attribution-v04"
+  node_type: "policy_module"
+  label: "Attribution Policy Module"
+  description: "Policy module used to guide attribution-related review."
+  created_at: "2026-06-06T00:00:00Z"
+
+* node_id: "review-state-pending"
+  node_type: "review_state"
+  label: "Pending Review"
+  description: "Review state indicating that human review is still required."
+  created_at: "2026-06-06T00:00:00Z"
+
+* node_id: "governance-action-acknowledge"
+  node_type: "governance_action"
+  label: "Acknowledge Relationship"
+  description: "Governance action acknowledging a value relationship without automatic compensation."
+  created_at: "2026-06-06T00:00:00Z"
+
+* node_id: "os-event-graph-created"
+  node_type: "os_event"
+  label: "Graph Created Event"
+  description: "OS event recording creation of the Multi-Layer Value Graph example."
+  created_at: "2026-06-06T00:00:00Z"
+
+edges:
+
+* edge_id: "edge-human-to-idea"
+  layer_id: "layer-contribution"
+  source_node_id: "human-samuraiwriter7"
+  target_node_id: "idea-dynamic-value-relationship-os"
+  relationship_type: "contribution"
+  direction: "directed"
+  description: "The human originator contributes the core Dynamic Value Relationship OS concept."
+  confidence: 1.0
+  review_status: "reviewed"
+  boundary_classification: "review"
+  evidence_references:
+
+  * "docs/v0.4-structural-diff.md"
+    created_at: "2026-06-06T00:00:00Z"
+
+* edge_id: "edge-idea-to-prompt"
+  layer_id: "layer-derivation"
+  source_node_id: "idea-dynamic-value-relationship-os"
+  target_node_id: "prompt-v04-structural-diff"
+  relationship_type: "derivation"
+  direction: "directed"
+  description: "The v0.4 concept is transformed into a prompt for structural formalization."
+  confidence: 0.95
+  review_status: "reviewed"
+  boundary_classification: "signal"
+  created_at: "2026-06-06T00:00:00Z"
+
+* edge_id: "edge-prompt-to-doc"
+  layer_id: "layer-derivation"
+  source_node_id: "prompt-v04-structural-diff"
+  target_node_id: "output-v04-structural-diff-doc"
+  relationship_type: "derivation"
+  direction: "directed"
+  description: "The prompt leads to the v0.4 structural diff document."
+  confidence: 0.95
+  review_status: "approved_for_record"
+  boundary_classification: "review"
+  evidence_references:
+
+  * "docs/v0.4-structural-diff.md"
+    created_at: "2026-06-06T00:00:00Z"
+
+* edge_id: "edge-doc-to-spec"
+  layer_id: "layer-reference"
+  source_node_id: "output-v04-structural-diff-doc"
+  target_node_id: "spec-v04-draft"
+  relationship_type: "reference"
+  direction: "directed"
+  description: "The draft specification references and translates the structural diff document."
+  confidence: 1.0
+  review_status: "approved_for_record"
+  boundary_classification: "policy"
+  evidence_references:
+
+  * "docs/v0.4-structural-diff.md"
+  * "specs/royalty-os-v0.4-draft.yaml"
+    created_at: "2026-06-06T00:00:00Z"
+
+* edge_id: "edge-policy-applies-to-doc"
+  layer_id: "layer-policy"
+  source_node_id: "policy-attribution-v04"
+  target_node_id: "output-v04-structural-diff-doc"
+  relationship_type: "policy_application"
+  direction: "directed"
+  description: "The attribution policy module applies to the structural diff document."
+  confidence: 0.9
+  review_status: "pending_review"
+  boundary_classification: "policy"
+  policy_references:
+
+  * "policy-attribution-v04"
+    created_at: "2026-06-06T00:00:00Z"
+
+* edge_id: "edge-doc-review-state"
+  layer_id: "layer-review"
+  source_node_id: "output-v04-structural-diff-doc"
+  target_node_id: "review-state-pending"
+  relationship_type: "review_status"
+  direction: "directed"
+  description: "The document remains subject to review before schema lock-in."
+  confidence: 1.0
+  review_status: "pending_review"
+  boundary_classification: "review"
+  created_at: "2026-06-06T00:00:00Z"
+
+* edge_id: "edge-governance-acknowledge"
+  layer_id: "layer-governance"
+  source_node_id: "governance-action-acknowledge"
+  target_node_id: "edge-doc-to-spec"
+  relationship_type: "governance_action"
+  direction: "directed"
+  description: "A governance action acknowledges the relationship between the structural diff document and the draft specification."
+  confidence: 0.9
+  review_status: "pending_review"
+  boundary_classification: "governance"
+  created_at: "2026-06-06T00:00:00Z"
+
+* edge_id: "edge-os-event-created"
+  layer_id: "layer-event"
+  source_node_id: "os-event-graph-created"
+  target_node_id: "spec-v04-draft"
+  relationship_type: "os_event_link"
+  direction: "directed"
+  description: "An OS event records the creation of the v0.4 Multi-Layer Value Graph example."
+  confidence: 1.0
+  review_status: "reviewed"
+  boundary_classification: "governance"
+  created_at: "2026-06-06T00:00:00Z"
+
+boundary_model:
+scoring_boundary:
+enabled: true
+statement: "Scores and confidence values may assist review, but they must not become final value judgments."
+separates:
+from: "signal_assessment"
+to: "final_value_judgment"
+
+execution_boundary:
+enabled: true
+statement: "Governance actions may be recorded or recommended, but they must not automatically trigger compensation, enforcement, or legal consequence."
+separates:
+from: "governance_recommendation"
+to: "automatic_execution"
+
+compatibility:
+compatible_with:
+- "v0.3"
+v0_3_graph_id: "value-graph-v03-baseline"
+migration_status: "partial"
+migration_notes: "This example shows how a v0.3-style Value Graph can be expanded into v0.4 graph layers."
+mapped_from:
+- from_path: "v0.3.value_graph.nodes"
+to_path: "v0.4.multi_layer_value_graph.nodes"
+notes: "v0.3 nodes remain valid as baseline nodes."
+- from_path: "v0.3.value_graph.edges"
+to_path: "v0.4.multi_layer_value_graph.edges"
+notes: "v0.3 edges are distributed across v0.4 graph layers."
+- from_path: "v0.3.policy_engine"
+to_path: "v0.4.policy_layer"
+notes: "The v0.3 policy engine becomes modular policy references in v0.4."
+
+review_context:
+review_required: true
+review_mode: "human_reviewed_ai_assisted"
+review_notes: "This example should be reviewed before being used as a stable reference example."
+reviewers:
+- "human_reviewer"

@@ -1,0 +1,419 @@
+spec_id: "royalty-os-v0.4-draft"
+title: "Royalty OS v0.4 Draft Specification"
+subtitle: "Dynamic Value Relationship OS"
+version: "0.4.0-draft"
+status: "draft"
+date: "2026-06-06"
+
+repository_context:
+project_name: "Royalty OS"
+previous_version: "v0.3"
+structural_diff_document: "docs/v0.4-structural-diff.md"
+recommended_file_path: "specs/royalty-os-v0.4-draft.yaml"
+
+summary:
+purpose: >
+Royalty OS v0.4 extends the v0.3 Policy-Guided Value Graph Architecture
+into a Dynamic Value Relationship OS. It defines how value relationships
+may be layered, reviewed, governed, logged, and evolved over time without
+automatically deciding value or executing compensation.
+transition:
+from: "Review-Support Architecture"
+to: "Dynamic Value Relationship OS"
+core_statement: >
+Royalty OS v0.4 does not decide value automatically. It structures dynamic
+value relationships so that humans and AI systems can review, govern, and
+evolve them responsibly.
+
+lineage:
+v0_1:
+role: "record"
+description: "Established the basic value record layer."
+v0_2:
+role: "event"
+description: "Extended value records into value events."
+v0_3:
+role: "graph_plus_policy"
+description: "Introduced the Value Graph, Policy Engine, Scoring Boundary, and Governance Layer."
+v0_4:
+role: "dynamic_relationship_os"
+description: "Extends v0.3 into a governable, evolvable, multi-layer value relationship OS."
+
+design_principles:
+
+* id: "human_reviewed"
+  name: "Human-Reviewed"
+  description: >
+  Final value interpretation and governance decisions remain subject to
+  human review.
+* id: "ai_assisted"
+  name: "AI-Assisted"
+  description: >
+  AI systems may assist in structuring, detecting, comparing, and explaining
+  value relationships.
+* id: "policy_guided"
+  name: "Policy-Guided"
+  description: >
+  Policy modules may guide interpretation, but they do not replace
+  governance or final judgment.
+* id: "boundary_aware"
+  name: "Boundary-Aware"
+  description: >
+  Scoring, review, governance, and execution must remain structurally
+  separated.
+* id: "event_logged"
+  name: "Event-Logged"
+  description: >
+  Important changes to value relationships and OS-level structures should
+  be recorded as events.
+* id: "evolvable"
+  name: "Evolvable"
+  description: >
+  Value graphs should be able to evolve without losing compatibility with
+  earlier records and graph structures.
+
+v0_3_baseline:
+architecture_name: "Policy-Guided Value Graph Architecture"
+core_components:
+- "value_graph"
+- "policy_engine"
+- "scoring_boundary"
+- "governance_layer"
+baseline_statement: >
+v0.3 made value relationships reviewable by structuring value events as
+graph relationships and applying policy-guided review boundaries.
+
+v0_4_core_extensions:
+architecture_name: "Dynamic Value Relationship OS"
+core_extensions:
+- "multi_layer_value_graph"
+- "policy_module_architecture"
+- "governance_action_extensions"
+- "dual_boundary_model"
+- "os_event_log"
+- "top_level_change_log"
+- "migration_mapping"
+
+architecture_flow:
+
+* step: "value_record"
+  description: "A basic record of value-relevant information."
+* step: "value_event"
+  description: "A value-related event derived from or connected to records."
+* step: "value_graph"
+  description: "A graph representation of reviewable value relationships."
+* step: "multi_layer_value_graph"
+  description: "A layered graph separating contribution, reference, derivation, review, policy, governance, and event relationships."
+* step: "policy_modules"
+  description: "Composable modules that guide review and governance interpretation."
+* step: "dual_boundary_review"
+  description: "A boundary model separating scoring from judgment and governance from execution."
+* step: "governance_actions"
+  description: "Reviewable governance operations applied to value relationships."
+* step: "os_event_log"
+  description: "A log of system-level structural changes and governance events."
+* step: "dynamic_value_relationship_os"
+  description: "The operating structure for evolving value relationships responsibly over time."
+
+multi_layer_value_graph:
+purpose: >
+The Multi-Layer Value Graph prevents different kinds of value relationships
+from being collapsed into a single flat graph structure.
+stable_identifier_requirement: true
+layers:
+- id: "contribution_layer"
+name: "Contribution Layer"
+purpose: "Represents who or what contributed to a value object."
+example_relationships:
+- "author -> work"
+- "prompt -> output"
+- "human_idea -> generated_artifact"
+- id: "reference_layer"
+name: "Reference Layer"
+purpose: "Represents references, citations, inspirations, or traceable influence."
+example_relationships:
+- "document -> cited_output"
+- "article -> derived_argument"
+- "repository -> implementation_note"
+- id: "derivation_layer"
+name: "Derivation Layer"
+purpose: "Represents transformation or derivation."
+example_relationships:
+- "draft -> edited_document"
+- "prompt -> generated_text"
+- "specification -> schema"
+- id: "review_layer"
+name: "Review Layer"
+purpose: "Represents review states and assessment status."
+example_relationships:
+- "relationship -> pending_review"
+- "relationship -> approved_for_record"
+- "relationship -> disputed"
+- id: "policy_layer"
+name: "Policy Layer"
+purpose: "Represents policy modules applied to relationships."
+example_relationships:
+- "relationship -> attribution_policy"
+- "relationship -> redistribution_policy"
+- "relationship -> dispute_policy"
+- id: "governance_layer"
+name: "Governance Layer"
+purpose: "Represents governance actions taken on value relationships."
+example_relationships:
+- "relationship -> flagged"
+- "relationship -> escalated"
+- "relationship -> archived"
+- id: "event_layer"
+name: "Event Layer"
+purpose: "Represents OS-level events related to value graph evolution."
+example_relationships:
+- "relationship_created"
+- "policy_applied"
+- "review_completed"
+- "governance_action_recorded"
+
+policy_module_architecture:
+purpose: >
+The Policy Module Architecture extends the v0.3 Policy Engine into modular,
+separable, and composable policy structures.
+policy_modules:
+- id: "attribution_policy"
+purpose: "Guides how contribution and attribution relationships should be reviewed."
+- id: "contribution_policy"
+purpose: "Guides how contribution strength and contribution context should be interpreted."
+- id: "review_policy"
+purpose: "Guides review status, review requirements, and review escalation."
+- id: "dispute_policy"
+purpose: "Guides how disputed value relationships should be handled."
+- id: "redistribution_policy"
+purpose: "Guides redistribution-related interpretation without automatic execution."
+- id: "archival_policy"
+purpose: "Guides when relationships or events should be archived."
+- id: "migration_policy"
+purpose: "Guides migration from older records, events, and graphs."
+applies_to:
+- "node"
+- "edge"
+- "graph_layer"
+- "governance_action"
+- "os_event"
+- "migration_event"
+- "review_state"
+boundary_statement: >
+A policy module may guide interpretation. It must not automatically produce
+final value decisions.
+
+governance_action_extensions:
+purpose: >
+Governance actions define how a value relationship may be handled after
+review. They are reviewable structural operations, not automatic enforcement
+or compensation actions.
+allowed_action_types:
+- "acknowledge"
+- "flag"
+- "defer"
+- "merge"
+- "split"
+- "revise"
+- "escalate"
+- "reject"
+- "archive"
+governance_action_fields:
+- "action_id"
+- "action_type"
+- "target_relationship_id"
+- "actor"
+- "reason"
+- "policy_reference"
+- "review_status"
+- "timestamp"
+boundary_statement: >
+Governance actions may be suggested, reviewed, and recorded. They must not
+automatically trigger compensation, legal enforcement, punishment, or final
+attribution.
+
+dual_boundary_model:
+purpose: >
+The Dual Boundary Model extends the v0.3 Scoring Boundary by separating
+scoring from judgment and governance from execution.
+boundaries:
+scoring_boundary:
+separates:
+from: "signal_assessment"
+to: "final_value_judgment"
+description: >
+A score may assist review, but it must not replace review or final
+value judgment.
+example_signals:
+- "trace_strength"
+- "contribution_confidence"
+- "reference_density"
+- "derivation_proximity"
+- "review_priority"
+execution_boundary:
+separates:
+from: "governance_recommendation"
+to: "automatic_execution"
+description: >
+A governance recommendation or governance action must not automatically
+trigger compensation, enforcement, punishment, or legal consequence.
+field_classification_targets:
+- "signal"
+- "review"
+- "policy"
+- "governance"
+- "execution"
+
+os_event_log:
+purpose: >
+The OS Event Log records meaningful system-level changes to the structures
+that manage value relationships.
+event_types:
+- "value_relationship_created"
+- "value_relationship_updated"
+- "policy_module_applied"
+- "governance_action_recorded"
+- "review_state_changed"
+- "graph_layer_added"
+- "graph_migration_performed"
+- "compatibility_mapping_created"
+suggested_fields:
+- "event_id"
+- "event_type"
+- "target_id"
+- "actor"
+- "timestamp"
+- "previous_state"
+- "new_state"
+- "policy_context"
+- "governance_context"
+- "notes"
+boundary_statement: >
+The OS Event Log is a structural accountability mechanism. It should not be
+treated as a surveillance mechanism.
+
+top_level_change_log:
+purpose: >
+The top-level change log records high-level changes to the value relationship
+architecture itself.
+change_types:
+- "graph_version_updated"
+- "policy_module_replaced"
+- "governance_rule_revised"
+- "boundary_rule_changed"
+- "migration_applied"
+- "layer_added"
+- "layer_deprecated"
+supports:
+- "auditability"
+- "version_traceability"
+- "migration_clarity"
+- "governance_continuity"
+
+compatibility_with_v0_3:
+compatibility_principle: >
+v0.4 should treat v0.3 records and graphs as valid baseline structures.
+v0.4 extends v0.3 without invalidating it.
+mapping:
+- from: "v0.3 value_graph.nodes"
+to: "v0.4 multi_layer_value_graph.nodes"
+- from: "v0.3 value_graph.edges"
+to: "v0.4 graph_layers"
+- from: "v0.3 policy_engine"
+to: "v0.4 policy_modules"
+- from: "v0.3 scoring_boundary"
+to: "v0.4 dual_boundary_model.scoring_boundary"
+- from: "v0.3 governance_layer"
+to: "v0.4 governance_actions"
+backward_compatibility: >
+v0.4 should support reading v0.3-style structures where possible. Additional
+metadata may be required when dynamic governance, layered graphs, or OS event
+logs are used.
+
+non_goals:
+
+* id: "no_automatic_compensation"
+  statement: "Royalty OS v0.4 does not automatically calculate, enforce, or distribute compensation."
+* id: "no_final_legal_judgment"
+  statement: "Royalty OS v0.4 does not determine legal ownership, copyright status, or enforceable claims."
+* id: "no_fully_automated_value_decision"
+  statement: "Scores and policies assist review. They do not replace judgment."
+* id: "no_universal_policy"
+  statement: "Royalty OS v0.4 does not impose one universal governance policy for all contexts."
+* id: "no_premature_schema_lock_in"
+  statement: "This draft does not finalize JSON Schemas."
+* id: "no_validator_before_structural_agreement"
+  statement: "Validators and GitHub Actions should be added only after structural models are stable."
+
+future_schema_targets:
+
+* path: "schemas/value-graph-v2.schema.json"
+  purpose: "Defines the Multi-Layer Value Graph structure."
+* path: "schemas/policy-module.schema.json"
+  purpose: "Defines modular policy structures."
+* path: "schemas/os-event.schema.json"
+  purpose: "Defines OS-level event records."
+* path: "schemas/governance-action.schema.json"
+  purpose: "Defines governance action records."
+* path: "schemas/dual-boundary.schema.json"
+  purpose: "Defines scoring and execution boundary structures."
+
+future_example_targets:
+
+* path: "examples/multi-layer-value-graph.example.yaml"
+  purpose: "Demonstrates layered value graph structure."
+* path: "examples/policy-module.example.yaml"
+  purpose: "Demonstrates a modular policy definition."
+* path: "examples/governance-action.example.yaml"
+  purpose: "Demonstrates a reviewable governance action."
+* path: "examples/os-event.example.yaml"
+  purpose: "Demonstrates an OS-level event log entry."
+
+migration_path:
+
+* step: 1
+  action: "Add docs/v0.4-structural-diff.md"
+  status: "completed"
+* step: 2
+  action: "Reflect v0.4 structural diff in README.md"
+  status: "completed"
+* step: 3
+  action: "Add specs/royalty-os-v0.4-draft.yaml"
+  status: "current"
+* step: 4
+  action: "Define value graph v2 schema"
+  status: "planned"
+* step: 5
+  action: "Define policy module schema"
+  status: "planned"
+* step: 6
+  action: "Define OS event schema"
+  status: "planned"
+* step: 7
+  action: "Add examples"
+  status: "planned"
+* step: 8
+  action: "Add validator script"
+  status: "planned"
+* step: 9
+  action: "Add GitHub Actions workflow"
+  status: "planned"
+* step: 10
+  action: "Update README.md and CHANGELOG.md"
+  status: "planned"
+
+validation_status:
+schema_locked: false
+examples_added: false
+validator_added: false
+github_actions_added: false
+note: >
+This draft is intended to stabilize the v0.4 structure before schemas,
+examples, validators, and workflows are introduced.
+
+final_statement: >
+Royalty OS v0.4 is the stage where value relationships become dynamic,
+governable, and evolvable. It does not decide value automatically. It does
+not execute compensation automatically. It provides the operating structure
+through which value relationships can be reviewed, updated, governed, and
+preserved responsibly.

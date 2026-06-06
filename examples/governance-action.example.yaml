@@ -1,4 +1,3 @@
-cat > examples/governance-action.example.yaml <<'YAML'
 schema_version: "0.4.0-draft"
 object_type: "governance_action"
 action_id: "governance-action-acknowledge-001"
@@ -6,16 +5,16 @@ action_type: "acknowledge"
 action_time: "2026-06-06T00:00:00Z"
 
 actor:
-actor_id: "human-reviewer"
-actor_type: "human"
-label: "Human Reviewer"
-role: "reviewer"
+  actor_id: "human-reviewer"
+  actor_type: "human"
+  label: "Human Reviewer"
+  role: "reviewer"
 
 target:
-target_id: "edge-doc-to-spec"
-target_type: "edge"
-target_path: "examples/multi-layer-value-graph.example.yaml#/edges/edge-doc-to-spec"
-target_label: "Structural Diff Document to Draft Specification Relationship"
+  target_id: "edge-doc-to-spec"
+  target_type: "edge"
+  target_path: "examples/multi-layer-value-graph.example.yaml#/edges/edge-doc-to-spec"
+  target_label: "Structural Diff Document to Draft Specification Relationship"
 
 reason: "Acknowledge the documented relationship between the v0.4 structural diff and the v0.4 draft specification while preserving human review and non-automatic execution boundaries."
 
@@ -25,73 +24,73 @@ review_status: "pending_review"
 boundary_classification: "governance"
 
 policy_context:
-policy_module_ids:
-- "policy-attribution-v04"
-policy_reference_paths:
-- "examples/policy-module.example.yaml"
-- "schemas/policy-module.schema.json"
-policy_effect: "requires_human_review"
-policy_notes: "The attribution policy module guides this governance action but does not automatically determine final attribution or value."
+  policy_module_ids:
+    - "policy-attribution-v04"
+  policy_reference_paths:
+    - "examples/policy-module.example.yaml"
+    - "schemas/policy-module.schema.json"
+  policy_effect: "requires_human_review"
+  policy_notes: "The attribution policy module guides this governance action but does not automatically determine final attribution or value."
 
 review_context:
-review_required: true
-review_mode: "human_reviewed_ai_assisted"
-reviewer_ids:
-- "human-reviewer"
-review_notes: "This governance action requires human review before being treated as approved for record."
+  review_required: true
+  review_mode: "human_reviewed_ai_assisted"
+  reviewer_ids:
+    - "human-reviewer"
+  review_notes: "This governance action requires human review before being treated as approved for record."
 
 execution_boundary:
-enabled: true
-statement: "This governance action is reviewable and recordable, but it must not automatically trigger compensation, legal enforcement, punishment, final attribution, ownership assignment, or irreversible execution."
-automatic_execution_allowed: false
-prohibits:
-- "automatic_compensation_execution"
-- "automatic_legal_enforcement"
-- "automatic_punitive_action"
-- "automatic_final_attribution"
-- "automatic_ownership_assignment"
-- "irreversible_execution_without_review"
-requires_human_approval_for_execution: true
+  enabled: true
+  statement: "This governance action is reviewable and recordable, but it must not automatically trigger compensation, legal enforcement, punishment, final attribution, ownership assignment, or irreversible execution."
+  automatic_execution_allowed: false
+  prohibits:
+    - "automatic_compensation_execution"
+    - "automatic_legal_enforcement"
+    - "automatic_punitive_action"
+    - "automatic_final_attribution"
+    - "automatic_ownership_assignment"
+    - "irreversible_execution_without_review"
+  requires_human_approval_for_execution: true
 
 evidence_context:
-evidence_required: true
-evidence_references:
-- "docs/v0.4-structural-diff.md"
-- "specs/royalty-os-v0.4-draft.yaml"
-- "examples/multi-layer-value-graph.example.yaml"
-evidence_notes: "The relationship is supported by the structural diff document, the draft specification, and the Multi-Layer Value Graph example."
+  evidence_required: true
+  evidence_references:
+    - "docs/v0.4-structural-diff.md"
+    - "specs/royalty-os-v0.4-draft.yaml"
+    - "examples/multi-layer-value-graph.example.yaml"
+  evidence_notes: "The relationship is supported by the structural diff document, the draft specification, and the Multi-Layer Value Graph example."
 
 os_event_context:
-related_os_event_ids:
-- "os-event-policy-applied-001"
-should_create_os_event: true
-recommended_os_event_type: "governance_action_recorded"
+  related_os_event_ids:
+    - "os-event-policy-applied-001"
+  should_create_os_event: true
+  recommended_os_event_type: "governance_action_recorded"
 
 international_context:
-cross_border: false
-origin_jurisdiction: "not_specified"
-target_jurisdiction: "not_specified"
-participating_institutions:
-- "Royalty OS v0.4 repository"
-jurisdiction_policy_modules: []
-international_notes: "This example is not cross-border, but it remains compatible with future international governance extensions."
+  cross_border: false
+  origin_jurisdiction: "not_specified"
+  target_jurisdiction: "not_specified"
+  participating_institutions:
+    - "Royalty OS v0.4 repository"
+  jurisdiction_policy_modules: []
+  international_notes: "This example is not cross-border, but it remains compatible with future international governance extensions."
 
 compatibility:
-compatible_with:
-- "v0.4-draft"
-related_graph_id: "mlvg-example-001"
-related_policy_id: "policy-attribution-v04"
-related_os_event_id: "os-event-policy-applied-001"
-migration_notes: "This governance action example extends the v0.4 validation set after Value Graph v2, Policy Module, and OS Event validation."
+  compatible_with:
+    - "v0.4-draft"
+  related_graph_id: "mlvg-example-001"
+  related_policy_id: "policy-attribution-v04"
+  related_os_event_id: "os-event-policy-applied-001"
+  migration_notes: "This governance action example extends the v0.4 validation set after Value Graph v2, Policy Module, and OS Event validation."
 
 metadata:
-created_at: "2026-06-06T00:00:00Z"
-updated_at: "2026-06-06T00:00:00Z"
-created_by: "SamuraiWriter7"
-spec_reference: "specs/royalty-os-v0.4-draft.yaml"
-structural_diff_reference: "docs/v0.4-structural-diff.md"
-international_alignment_reference: "docs/international-protocol-alignment.md"
-notes: "This is the first Governance Action example for Royalty OS v0.4."
+  created_at: "2026-06-06T00:00:00Z"
+  updated_at: "2026-06-06T00:00:00Z"
+  created_by: "SamuraiWriter7"
+  spec_reference: "specs/royalty-os-v0.4-draft.yaml"
+  structural_diff_reference: "docs/v0.4-structural-diff.md"
+  international_alignment_reference: "docs/international-protocol-alignment.md"
+  notes: "This is the first Governance Action example for Royalty OS v0.4."
 
 notes: "This governance action acknowledges a value relationship as structurally meaningful. It does not execute compensation, determine legal ownership, finalize attribution, or replace human review."
-YAML
+

@@ -8,43 +8,42 @@ type: software
 license: MIT
 
 authors:
-
-* name: "SamuraiWriter7"
+  - name: "SamuraiWriter7"
 
 repository-code: "https://github.com/SamuraiWriter7/royalty-os-v0.4"
 url: "https://github.com/SamuraiWriter7/royalty-os-v0.4"
 
 abstract: >
-Royalty OS v0.4 is a draft specification for structuring, reviewing,
-governing, and evolving multi-layer value relationships. It extends
-the v0.3 review-support architecture into a Dynamic Value Relationship OS
-through Multi-Layer Value Graphs, Policy Modules, OS Event Logs, and
-Governance Actions. Royalty OS v0.4 does not automatically decide value,
-execute compensation, determine legal ownership, or replace human judgment.
-Instead, it provides a structured layer for traceable, reviewable,
-policy-guided, boundary-aware, and accountable value relationship governance.
+  Royalty OS v0.4 is a draft specification for structuring, reviewing,
+  governing, and evolving multi-layer value relationships. It extends
+  the v0.3 review-support architecture into a Dynamic Value Relationship OS
+  through Multi-Layer Value Graphs, Policy Modules, OS Event Logs, and
+  Governance Actions. Royalty OS v0.4 does not automatically decide value,
+  execute compensation, determine legal ownership, or replace human judgment.
+  Instead, it provides a structured layer for traceable, reviewable,
+  policy-guided, boundary-aware, and accountable value relationship governance.
 
 keywords:
-
-* royalty-os
-* value-graph
-* value-governance
-* ai-governance
-* policy-module
-* os-event-log
-* governance-action
-* traceability
-* attribution
-* ai-infrastructure
-* dynamic-value-relationship-os
-* multi-layer-value-graph
+  - royalty-os
+  - value-graph
+  - value-governance
+  - ai-governance
+  - policy-module
+  - os-event-log
+  - governance-action
+  - traceability
+  - attribution
+  - ai-infrastructure
+  - dynamic-value-relationship-os
+  - multi-layer-value-graph
 
 preferred-citation:
-type: software
-title: "Royalty OS v0.4: Dynamic Value Relationship OS"
-version: "0.4.0-draft"
-date-released: "2026-06-06"
-authors:
-- name: "SamuraiWriter7"
-repository-code: "https://github.com/SamuraiWriter7/royalty-os-v0.4"
-url: "https://github.com/SamuraiWriter7/royalty-os-v0.4"
+  type: software
+  title: "Royalty OS v0.4: Dynamic Value Relationship OS"
+  version: "0.4.0-draft"
+  date-released: "2026-06-06"
+  authors:
+    - name: "SamuraiWriter7"
+  repository-code: "https://github.com/SamuraiWriter7/royalty-os-v0.4"
+  url: "https://github.com/SamuraiWriter7/royalty-os-v0.4"
+

@@ -1,0 +1,450 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://samuraiwriter7.github.io/royalty-os/schemas/governance-action.schema.json",
+"title": "Royalty OS Governance Action Schema",
+"description": "Schema for Royalty OS v0.4 Governance Action records. Governance Actions define reviewable structural operations applied to value relationships, policy modules, graph elements, or OS events without automatically executing compensation, enforcement, punishment, or final attribution.",
+"type": "object",
+"additionalProperties": false,
+"required": [
+"schema_version",
+"object_type",
+"action_id",
+"action_type",
+"action_time",
+"actor",
+"target",
+"reason",
+"review_status",
+"boundary_classification",
+"execution_boundary"
+],
+"properties": {
+"schema_version": {
+"type": "string",
+"const": "0.4.0-draft"
+},
+"object_type": {
+"type": "string",
+"const": "governance_action"
+},
+"action_id": {
+"$ref": "#/$defs/identifier"
+},
+"action_type": {
+"type": "string",
+"enum": [
+"acknowledge",
+"flag",
+"defer",
+"merge",
+"split",
+"revise",
+"escalate",
+"reject",
+"archive"
+]
+},
+"action_time": {
+"$ref": "#/$defs/timestamp"
+},
+"actor": {
+"$ref": "#/$defs/actor"
+},
+"target": {
+"$ref": "#/$defs/action_target"
+},
+"reason": {
+"type": "string",
+"minLength": 1
+},
+"description": {
+"type": "string"
+},
+"review_status": {
+"type": "string",
+"enum": [
+"unreviewed",
+"pending_review",
+"reviewed",
+"approved_for_record",
+"disputed",
+"rejected",
+"archived"
+]
+},
+"boundary_classification": {
+"type": "string",
+"enum": [
+"governance"
+]
+},
+"policy_context": {
+"$ref": "#/$defs/policy_context"
+},
+"review_context": {
+"$ref": "#/$defs/review_context"
+},
+"execution_boundary": {
+"$ref": "#/$defs/execution_boundary"
+},
+"evidence_context": {
+"$ref": "#/$defs/evidence_context"
+},
+"os_event_context": {
+"$ref": "#/$defs/os_event_context"
+},
+"international_context": {
+"$ref": "#/$defs/international_context"
+},
+"compatibility": {
+"$ref": "#/$defs/compatibility"
+},
+"metadata": {
+"$ref": "#/$defs/metadata"
+},
+"notes": {
+"type": "string"
+}
+},
+"$defs": {
+"identifier": {
+"type": "string",
+"minLength": 1,
+"pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+},
+"timestamp": {
+"type": "string",
+"format": "date-time"
+},
+"actor": {
+"type": "object",
+"additionalProperties": false,
+"required": [
+"actor_id",
+"actor_type"
+],
+"properties": {
+"actor_id": {
+"$ref": "#/$defs/identifier"
+},
+"actor_type": {
+"type": "string",
+"enum": [
+"human",
+"ai_system",
+"organization",
+"repository",
+"workflow",
+"validator",
+"governance_process",
+"custom"
+]
+},
+"label": {
+"type": "string"
+},
+"role": {
+"type": "string",
+"enum": [
+"originator",
+"reviewer",
+"maintainer",
+"validator",
+"policy_applier",
+"governance_actor",
+"system_process",
+"custom"
+]
+}
+}
+},
+"action_target": {
+"type": "object",
+"additionalProperties": false,
+"required": [
+"target_id",
+"target_type"
+],
+"properties": {
+"target_id": {
+"$ref": "#/$defs/identifier"
+},
+"target_type": {
+"type": "string",
+"enum": [
+"node",
+"edge",
+"graph",
+"graph_layer",
+"value_record",
+"value_event",
+"policy_module",
+"governance_action",
+"os_event",
+"review_state",
+"boundary_rule",
+"migration_mapping",
+"repository",
+"document",
+"schema",
+"example",
+"workflow",
+"custom"
+]
+},
+"target_path": {
+"type": "string"
+},
+"target_label": {
+"type": "string"
+}
+}
+},
+"policy_context": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"policy_module_ids": {
+"type": "array",
+"items": {
+"$ref": "#/$defs/identifier"
+},
+"uniqueItems": true
+},
+"policy_reference_paths": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+},
+"policy_effect": {
+"type": "string",
+"enum": [
+"informational",
+"recommended",
+"required_for_review",
+"requires_human_review",
+"prohibited",
+"not_applicable"
+]
+},
+"policy_notes": {
+"type": "string"
+}
+}
+},
+"review_context": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"review_required": {
+"type": "boolean"
+},
+"review_mode": {
+"type": "string",
+"enum": [
+"human_reviewed",
+"ai_assisted",
+"policy_guided",
+"human_reviewed_ai_assisted",
+"not_required"
+]
+},
+"reviewer_ids": {
+"type": "array",
+"items": {
+"$ref": "#/$defs/identifier"
+},
+"uniqueItems": true
+},
+"review_notes": {
+"type": "string"
+}
+}
+},
+"execution_boundary": {
+"type": "object",
+"additionalProperties": false,
+"required": [
+"enabled",
+"statement",
+"automatic_execution_allowed"
+],
+"properties": {
+"enabled": {
+"type": "boolean"
+},
+"statement": {
+"type": "string",
+"minLength": 1
+},
+"automatic_execution_allowed": {
+"type": "boolean",
+"const": false
+},
+"prohibits": {
+"type": "array",
+"items": {
+"type": "string",
+"enum": [
+"automatic_compensation_execution",
+"automatic_legal_enforcement",
+"automatic_punitive_action",
+"automatic_final_attribution",
+"automatic_ownership_assignment",
+"irreversible_execution_without_review"
+]
+},
+"uniqueItems": true
+},
+"requires_human_approval_for_execution": {
+"type": "boolean"
+}
+}
+},
+"evidence_context": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"evidence_required": {
+"type": "boolean"
+},
+"evidence_references": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+},
+"evidence_notes": {
+"type": "string"
+}
+}
+},
+"os_event_context": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"related_os_event_ids": {
+"type": "array",
+"items": {
+"$ref": "#/$defs/identifier"
+},
+"uniqueItems": true
+},
+"should_create_os_event": {
+"type": "boolean"
+},
+"recommended_os_event_type": {
+"type": "string",
+"enum": [
+"governance_action_recorded",
+"governance_action_updated",
+"review_state_changed",
+"boundary_rule_applied",
+"custom",
+"not_applicable"
+]
+}
+}
+},
+"international_context": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"cross_border": {
+"type": "boolean"
+},
+"origin_jurisdiction": {
+"type": "string"
+},
+"target_jurisdiction": {
+"type": "string"
+},
+"participating_institutions": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+},
+"jurisdiction_policy_modules": {
+"type": "array",
+"items": {
+"$ref": "#/$defs/identifier"
+},
+"uniqueItems": true
+},
+"international_notes": {
+"type": "string"
+}
+}
+},
+"compatibility": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"compatible_with": {
+"type": "array",
+"items": {
+"type": "string",
+"enum": [
+"v0.3",
+"v0.4-draft"
+]
+},
+"uniqueItems": true
+},
+"related_graph_id": {
+"$ref": "#/$defs/identifier"
+},
+"related_policy_id": {
+"$ref": "#/$defs/identifier"
+},
+"related_os_event_id": {
+"$ref": "#/$defs/identifier"
+},
+"migration_notes": {
+"type": "string"
+}
+}
+},
+"metadata": {
+"type": "object",
+"additionalProperties": false,
+"required": [
+"created_at",
+"created_by",
+"spec_reference"
+],
+"properties": {
+"created_at": {
+"$ref": "#/$defs/timestamp"
+},
+"updated_at": {
+"$ref": "#/$defs/timestamp"
+},
+"created_by": {
+"type": "string",
+"minLength": 1
+},
+"spec_reference": {
+"type": "string",
+"const": "specs/royalty-os-v0.4-draft.yaml"
+},
+"structural_diff_reference": {
+"type": "string",
+"const": "docs/v0.4-structural-diff.md"
+},
+"international_alignment_reference": {
+"type": "string",
+"const": "docs/international-protocol-alignment.md"
+},
+"notes": {
+"type": "string"
+}
+}
+}
+}
+}

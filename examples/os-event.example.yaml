@@ -1,0 +1,99 @@
+schema_version: "0.4.0-draft"
+object_type: "os_event"
+event_id: "os-event-policy-applied-001"
+event_type: "policy_module_applied"
+event_time: "2026-06-06T00:00:00Z"
+
+actor:
+actor_id: "workflow-validate-examples"
+actor_type: "workflow"
+label: "Validate Examples Workflow"
+role: "validator"
+
+target:
+target_id: "policy-attribution-v04"
+target_type: "policy_module"
+target_path: "examples/policy-module.example.yaml"
+target_label: "Attribution Policy Module"
+
+event_context:
+summary: "A Policy Module example was added and prepared for validation against the v0.4 Policy Module schema."
+purpose: "Record the application of a policy module within the Royalty OS v0.4 validation structure."
+reason: "Policy Modules are required to guide review and governance interpretation without automatically deciding value."
+source_references:
+- "schemas/policy-module.schema.json"
+- "examples/policy-module.example.yaml"
+- "docs/v0.4-structural-diff.md"
+- "docs/international-protocol-alignment.md"
+related_event_ids: []
+
+previous_state:
+state_id: "state-policy-module-not-recorded"
+state_type: "policy_module_validation"
+status: "not_started"
+description: "The Policy Module example had not yet been recorded as an OS-level event."
+
+new_state:
+state_id: "state-policy-module-recorded"
+state_type: "policy_module_validation"
+status: "recorded"
+description: "The Policy Module example is now represented through an OS Event record."
+
+policy_context:
+policy_module_ids:
+- "policy-attribution-v04"
+policy_reference_paths:
+- "examples/policy-module.example.yaml"
+- "schemas/policy-module.schema.json"
+policy_effect: "requires_human_review"
+policy_notes: "The policy module guides attribution review while preserving human judgment and boundary separation."
+
+governance_context:
+governance_action_ids: []
+governance_action_type: "not_applicable"
+governance_status: "not_applicable"
+governance_reason: "This OS Event records policy application, not a governance action."
+
+review_context:
+review_required: true
+review_mode: "human_reviewed_ai_assisted"
+review_status: "pending_review"
+reviewer_ids:
+- "human_reviewer"
+review_notes: "This event should be reviewed before being treated as a stable OS Event example."
+
+boundary_classification: "policy"
+
+accountability:
+audit_relevance: "medium"
+public_summary_allowed: true
+privacy_level: "public"
+retention_status: "active"
+accountability_notes: "This event is suitable for public repository-level audit documentation."
+
+international_context:
+cross_border: false
+origin_jurisdiction: "not_specified"
+target_jurisdiction: "not_specified"
+participating_institutions:
+- "Royalty OS v0.4 repository"
+jurisdiction_policy_modules: []
+international_notes: "This example is not cross-border, but it is compatible with future international alignment extensions."
+
+compatibility:
+compatible_with:
+- "v0.4-draft"
+related_graph_id: "mlvg-example-001"
+related_policy_id: "policy-attribution-v04"
+migration_notes: "This OS Event example extends the v0.4 validation set after Value Graph v2 and Policy Module validation."
+
+metadata:
+created_at: "2026-06-06T00:00:00Z"
+updated_at: "2026-06-06T00:00:00Z"
+created_by: "SamuraiWriter7"
+spec_reference: "specs/royalty-os-v0.4-draft.yaml"
+structural_diff_reference: "docs/v0.4-structural-diff.md"
+international_alignment_reference: "docs/international-protocol-alignment.md"
+notes: "This is the first OS Event example for Royalty OS v0.4."
+
+notes: "This OS Event records a structural event. It does not execute compensation, determine legal ownership, or replace human review."

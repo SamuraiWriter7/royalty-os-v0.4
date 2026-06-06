@@ -206,3 +206,20 @@ python scripts/validate_examples.py
 Royalty OS v0.4 does not decide value automatically.
 It structures value relationships so that humans and AI systems can review, govern, and evolve them responsibly.
 ```
+### Added
+
+* Added `CITATION.cff`.
+
+  * Provides citation metadata for Royalty OS v0.4.
+  * Defines the recommended citation title as `Royalty OS v0.4: Dynamic Value Relationship OS`.
+  * Identifies the current version as `0.4.0-draft`.
+  * Includes repository metadata, author information, abstract, keywords, and preferred citation fields.
+  * Supports future academic, technical, repository-level, and protocol-level references to the specification.
+
+### Updated
+
+* Updated `README.md`.
+
+  * Added a Citation section.
+  * Clarified how to reference Royalty OS v0.4 using `CITATION.cff`.
+  * Added a recommended plain-text citation for the v0.4 draft specification.

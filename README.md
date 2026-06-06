@@ -386,6 +386,26 @@ Its role is to provide a value relationship governance layer for AI systems that
 
 ---
 
+## Citation
+
+If you use or reference this specification, please cite it using the repository citation metadata.
+
+Citation metadata is provided in:
+
+```text
+CITATION.cff
+```
+
+Recommended citation:
+
+```text
+SamuraiWriter7. Royalty OS v0.4: Dynamic Value Relationship OS. Version 0.4.0-draft. 2026.
+```
+
+Royalty OS v0.4 is a draft specification for structuring, reviewing, governing, and evolving multi-layer value relationships through Multi-Layer Value Graphs, Policy Modules, OS Event Logs, and Governance Actions.
+
+This citation file helps make the specification easier to reference in research, documentation, articles, repositories, and future protocol discussions.
+
 ## License
 
 This repository is released under the license specified in the repository.

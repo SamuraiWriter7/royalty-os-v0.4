@@ -8,127 +8,122 @@ module_type: "attribution_policy"
 description: "A policy module for guiding attribution review in Royalty OS v0.4 without automatically deciding value, compensation, or legal ownership."
 
 metadata:
-created_at: "2026-06-06T00:00:00Z"
-updated_at: "2026-06-06T00:00:00Z"
-created_by: "SamuraiWriter7"
-spec_reference: "specs/royalty-os-v0.4-draft.yaml"
-structural_diff_reference: "docs/v0.4-structural-diff.md"
-notes: "This example defines a draft attribution policy module for v0.4 validation."
+  created_at: "2026-06-06T00:00:00Z"
+  updated_at: "2026-06-06T00:00:00Z"
+  created_by: "SamuraiWriter7"
+  spec_reference: "specs/royalty-os-v0.4-draft.yaml"
+  structural_diff_reference: "docs/v0.4-structural-diff.md"
+  notes: "This example defines a draft attribution policy module for v0.4 validation."
 
 scope:
-scope_type: "repository"
-description: "Applies to attribution-related value relationships within the Royalty OS v0.4 repository."
-included_targets:
-- "mlvg-example-001"
-excluded_targets: []
+  scope_type: "repository"
+  description: "Applies to attribution-related value relationships within the Royalty OS v0.4 repository."
+  included_targets:
+    - "mlvg-example-001"
+  excluded_targets: []
 
 applies_to:
-
-* "node"
-* "edge"
-* "graph_layer"
-* "review_state"
-* "governance_action"
+  - "node"
+  - "edge"
+  - "graph_layer"
+  - "review_state"
+  - "governance_action"
 
 rules:
-
-* rule_id: "rule-attribution-review-required"
-  rule_type: "attribution_guidance"
-  description: "Attribution-related relationships should remain reviewable and must not be treated as final value judgments without human review."
-  guidance_level: "requires_human_review"
-  applies_to:
-
-  * "edge"
-  * "review_state"
+  - rule_id: "rule-attribution-review-required"
+    rule_type: "attribution_guidance"
+    description: "Attribution-related relationships should remain reviewable and must not be treated as final value judgments without human review."
+    guidance_level: "requires_human_review"
+    applies_to:
+      - "edge"
+      - "review_state"
     condition:
-    relationship_type: "contribution"
-    boundary_classification: "review"
+      relationship_type: "contribution"
+      boundary_classification: "review"
     recommended_action: "Mark the relationship as pending_review or reviewed according to available evidence."
     prohibited_actions:
-  * "automatic_value_judgment"
-  * "automatic_final_attribution"
+      - "automatic_value_judgment"
+      - "automatic_final_attribution"
     evidence_requirements:
-  * "source_reference"
-  * "evidence_references"
+      - "source_reference"
+      - "evidence_references"
     notes: "This rule protects the distinction between attribution guidance and final attribution judgment."
 
-* rule_id: "rule-confidence-is-not-final-value"
-  rule_type: "boundary_protection"
-  description: "Confidence values may assist review, but they must not become final value decisions."
-  guidance_level: "required_for_review"
-  applies_to:
-
-  * "edge"
+  - rule_id: "rule-confidence-is-not-final-value"
+    rule_type: "boundary_protection"
+    description: "Confidence values may assist review, but they must not become final value decisions."
+    guidance_level: "required_for_review"
+    applies_to:
+      - "edge"
     condition:
-    has_confidence: true
+      has_confidence: true
     recommended_action: "Use confidence only as a review signal."
     prohibited_actions:
-  * "score_as_final_decision"
+      - "score_as_final_decision"
     evidence_requirements:
-  * "review_notes"
+      - "review_notes"
     notes: "This rule enforces the scoring boundary."
 
-* rule_id: "rule-governance-action-needs-reason"
-  rule_type: "review_requirement"
-  description: "Governance actions related to attribution should include a reason and policy reference."
-  guidance_level: "recommended"
-  applies_to:
-
-  * "governance_action"
+  - rule_id: "rule-governance-action-needs-reason"
+    rule_type: "review_requirement"
+    description: "Governance actions related to attribution should include a reason and policy reference."
+    guidance_level: "recommended"
+    applies_to:
+      - "governance_action"
     condition:
-    action_type:
-
-    * "acknowledge"
-    * "flag"
-    * "escalate"
-      recommended_action: "Attach a governance reason and policy reference before recording the action."
-      prohibited_actions:
-  * "automatic_compensation_execution"
+      action_type:
+        - "acknowledge"
+        - "flag"
+        - "escalate"
+    recommended_action: "Attach a governance reason and policy reference before recording the action."
+    prohibited_actions:
+      - "automatic_compensation_execution"
     evidence_requirements:
-  * "policy_reference"
-  * "reason"
+      - "policy_reference"
+      - "reason"
     notes: "This rule keeps governance actions reviewable rather than executable."
 
 review_requirements:
-review_required: true
-review_mode: "human_reviewed_ai_assisted"
-minimum_review_status: "pending_review"
-requires_reviewer_notes: true
-requires_evidence_references: true
+  review_required: true
+  review_mode: "human_reviewed_ai_assisted"
+  minimum_review_status: "pending_review"
+  requires_reviewer_notes: true
+  requires_evidence_references: true
 
 boundary_constraints:
-scoring_boundary:
-enabled: true
-statement: "Scores, confidence values, and attribution signals may assist review, but they must not become final value judgments."
-prohibits:
-- "automatic_value_judgment"
-- "score_as_final_decision"
-- "unreviewed_attribution_finalization"
+  scoring_boundary:
+    enabled: true
+    statement: "Scores, confidence values, and attribution signals may assist review, but they must not become final value judgments."
+    prohibits:
+      - "automatic_value_judgment"
+      - "score_as_final_decision"
+      - "unreviewed_attribution_finalization"
 
-execution_boundary:
-enabled: true
-statement: "Policy guidance and governance recommendations must not automatically trigger compensation, enforcement, punishment, or final attribution."
-prohibits:
-- "automatic_compensation_execution"
-- "automatic_legal_enforcement"
-- "automatic_punitive_action"
-- "automatic_final_attribution"
+  execution_boundary:
+    enabled: true
+    statement: "Policy guidance and governance recommendations must not automatically trigger compensation, enforcement, punishment, or final attribution."
+    prohibits:
+      - "automatic_compensation_execution"
+      - "automatic_legal_enforcement"
+      - "automatic_punitive_action"
+      - "automatic_final_attribution"
 
 governance_constraints:
-allowed_governance_actions:
-- "acknowledge"
-- "flag"
-- "defer"
-- "escalate"
-- "archive"
-requires_governance_reason: true
-requires_policy_reference: true
-requires_human_approval_for_execution: true
+  allowed_governance_actions:
+    - "acknowledge"
+    - "flag"
+    - "defer"
+    - "escalate"
+    - "archive"
+  requires_governance_reason: true
+  requires_policy_reference: true
+  requires_human_approval_for_execution: true
 
 compatibility:
-compatible_with:
-- "v0.3"
-- "v0.4-draft"
-migration_notes: "This policy module extends the v0.3 Policy Engine into a modular v0.4 policy structure."
+  compatible_with:
+    - "v0.3"
+    - "v0.4-draft"
+  migration_notes: "This policy module extends the v0.3 Policy Engine into a modular v0.4 policy structure."
 
 notes: "This policy module is advisory. It guides review and governance interpretation, but does not decide value, execute compensation, or determine legal ownership."
+
